@@ -10,9 +10,9 @@ apis:
       - Weather
       - Climate
       - Environment
-    humanURL: ' https://opendatadocs.dmi.govcloud.dk/en/DMIOpenData'
+    humanURL: https://opendatadocs.dmi.govcloud.dk/en/DMIOpenData
     properties:
-      - url: ' https://opendatadocs.dmi.govcloud.dk/en/DMIOpenData'
+      - url: https://opendatadocs.dmi.govcloud.dk/en/DMIOpenData
         type: Documentation
     description: >-
       The Danish Meteorological Institute (DMI) is a government agency in
@@ -36,7 +36,7 @@ type: Index
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 access: 3rd-Party
 created: '2025-02-06'
-modified: '2025-03-01'
+modified: '2026-03-16'
 position: Consumer
 description: >-
   The Danish Meteorological Institute is a government agency responsible for
@@ -53,5 +53,5 @@ description: >-
   Denmark through their comprehensive meteorological and climate services.
 maintainers:
   - FN: Kin Lane
-    email: info@apievangelist.com
+    email: kin@apievangelist.com
 specificationVersion: '0.19'
