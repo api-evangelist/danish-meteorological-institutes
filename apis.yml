@@ -5,11 +5,11 @@ apis:
   - aid: danish-meteorological-institutes:danish-meteorological-institutes
     name: Danish Meteorological Institutes
     tags:
+      - Climate
+      - Environment
       - Meteorological
       - Meterology
       - Weather
-      - Climate
-      - Environment
     humanURL: https://opendatadocs.dmi.govcloud.dk/en/DMIOpenData
     properties:
       - url: https://opendatadocs.dmi.govcloud.dk/en/DMIOpenData
@@ -23,11 +23,11 @@ apis:
       change and its impacts on the environment.
 name: Danish Meteorological Institutes
 tags:
+  - Climate
+  - Environment
   - Meteorological
   - Meterology
   - Weather
-  - Climate
-  - Environment
 type: Index
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 access: 3rd-Party
