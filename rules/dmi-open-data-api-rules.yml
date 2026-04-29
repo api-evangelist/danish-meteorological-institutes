@@ -1,0 +1,39 @@
+extends:
+  - spectral:oas
+rules:
+  dmi-info-license:
+    description: API info should publish a license, since DMI publishes under CC-BY 4.0.
+    given: $.info
+    severity: warn
+    then:
+      field: license
+      function: truthy
+  dmi-server-versioned:
+    description: Server URLs must include the /v2 version prefix.
+    given: $.servers[*].url
+    severity: error
+    then:
+      function: pattern
+      functionOptions:
+        match: "/v[0-9]+(/|$)"
+  dmi-apikey-security:
+    description: Endpoints should reference the api-key security scheme.
+    given: $.paths[*][*]
+    severity: warn
+    then:
+      field: security
+      function: truthy
+  dmi-feature-collection-response:
+    description: GET item endpoints should return a FeatureCollection schema.
+    given: $.paths[*].get.responses['200'].content['application/geo+json'].schema
+    severity: warn
+    then:
+      field: $ref
+      function: truthy
+  dmi-time-resolution-enum:
+    description: timeResolution parameters should be limited to hour/day/month/year.
+    given: $.paths[*].get.parameters[?(@.name == 'timeResolution')].schema
+    severity: warn
+    then:
+      field: enum
+      function: truthy

@@ -1,0 +1,37 @@
+name: DMI Open Data Vocabulary
+description: >-
+  Shared vocabulary of terms used across DMI's Open Data services for weather
+  observations, climate data, ocean observations, and lightning data.
+terms:
+  - term: Observation
+    definition: >-
+      A measured value of a meteorological, climate, oceanographic, or
+      lightning parameter taken at a specific time and location.
+  - term: Station
+    definition: >-
+      A fixed observation point operated by DMI or affiliated networks where
+      one or more parameters are measured.
+  - term: Parameter
+    definition: >-
+      A measurable quantity such as temperature, wind speed, humidity, sea
+      level, or precipitation.
+  - term: Time Resolution
+    definition: >-
+      The aggregation period of a value (hour, day, month, or year) used in
+      climate data products.
+  - term: Bounding Box
+    definition: >-
+      A geographic rectangle (minLon, minLat, maxLon, maxLat) used to filter
+      observations to a region of interest.
+  - term: Datetime Range
+    definition: >-
+      ISO-8601 interval expression used to filter observations between two
+      points in time.
+  - term: API Key
+    definition: >-
+      A subscription credential issued per DMI Open Data service used to
+      authenticate API requests.
+  - term: GeoJSON Feature
+    definition: >-
+      A standardised representation of a single observation or station with
+      geometry and property attributes.

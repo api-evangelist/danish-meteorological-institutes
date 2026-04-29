@@ -1,0 +1,19 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "@vocab": "https://schema.dmi.dk/",
+    "schema": "https://schema.org/",
+    "geo": "http://www.opengis.net/ont/geosparql#",
+    "dmi": "https://schema.dmi.dk/",
+    "Observation": "dmi:Observation",
+    "Station": "dmi:Station",
+    "stationId": {"@id": "dmi:stationId", "@type": "schema:Text"},
+    "parameterId": {"@id": "dmi:parameterId", "@type": "schema:Text"},
+    "observed": {"@id": "dmi:observed", "@type": "schema:DateTime"},
+    "value": {"@id": "schema:value", "@type": "schema:Number"},
+    "name": {"@id": "schema:name", "@type": "schema:Text"},
+    "country": {"@id": "schema:addressCountry", "@type": "schema:Text"},
+    "geometry": {"@id": "geo:hasGeometry"},
+    "coordinates": {"@id": "geo:asGeoJSON"}
+  }
+}

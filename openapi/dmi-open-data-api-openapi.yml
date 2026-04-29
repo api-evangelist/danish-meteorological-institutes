@@ -1,0 +1,244 @@
+openapi: 3.1.0
+info:
+  title: DMI Open Data API
+  description: >-
+    The Danish Meteorological Institute (DMI) Open Data API provides public
+    access to weather observations, climate data, ocean observations, and
+    lightning data through OGC API - Features compatible collections.
+    Subscriptions and API keys are managed per data service.
+  version: '2.0'
+  contact:
+    name: Danish Meteorological Institute
+    url: https://opendatadocs.dmi.govcloud.dk/
+  license:
+    name: Creative Commons Attribution 4.0
+    url: https://creativecommons.org/licenses/by/4.0/
+servers:
+  - url: https://opendataapi.dmi.dk/v2
+    description: DMI Open Data API v2 (current)
+  - url: https://dmigw.govcloud.dk/v2
+    description: DMI Open Data API v2 (legacy, retiring 2026-06-30)
+tags:
+  - name: metObs
+    description: Raw weather observations from Danish and Greenlandic stations.
+  - name: climateData
+    description: Quality-checked climate data at multiple aggregation levels.
+  - name: oceanObs
+    description: Sea-level and water-temperature observations.
+  - name: lightningData
+    description: Lightning strike observations.
+paths:
+  /metObs/collections/observation/items:
+    get:
+      operationId: listMetObservations
+      summary: List meteorological observations
+      description: >-
+        Returns raw weather observations such as temperature, wind speed,
+        humidity, pressure, and precipitation from DMI weather stations.
+      tags:
+        - metObs
+      parameters:
+        - name: stationId
+          in: query
+          description: DMI station identifier.
+          schema:
+            type: string
+        - name: parameterId
+          in: query
+          description: Observation parameter (e.g., temp_dry, wind_speed).
+          schema:
+            type: string
+        - name: datetime
+          in: query
+          description: ISO-8601 datetime range, e.g. 2024-01-01T00:00:00Z/..
+          schema:
+            type: string
+        - name: bbox
+          in: query
+          description: Bounding box minLon,minLat,maxLon,maxLat.
+          schema:
+            type: string
+        - name: limit
+          in: query
+          schema:
+            type: integer
+            default: 1000
+      responses:
+        '200':
+          description: Feature collection of observations
+          content:
+            application/geo+json:
+              schema:
+                $ref: '#/components/schemas/FeatureCollection'
+      security:
+        - apiKey: []
+  /metObs/collections/station/items:
+    get:
+      operationId: listMetStations
+      summary: List meteorological stations
+      description: Lists DMI weather stations and their metadata.
+      tags:
+        - metObs
+      parameters:
+        - name: bbox
+          in: query
+          schema:
+            type: string
+        - name: limit
+          in: query
+          schema:
+            type: integer
+            default: 1000
+      responses:
+        '200':
+          description: Feature collection of stations
+          content:
+            application/geo+json:
+              schema:
+                $ref: '#/components/schemas/FeatureCollection'
+      security:
+        - apiKey: []
+  /climateData/collections/stationValue/items:
+    get:
+      operationId: listClimateStationValues
+      summary: List climate station values
+      description: >-
+        Returns quality-checked climate data values measured at DMI stations,
+        including hourly, daily, monthly and yearly aggregations.
+      tags:
+        - climateData
+      parameters:
+        - name: stationId
+          in: query
+          schema:
+            type: string
+        - name: parameterId
+          in: query
+          schema:
+            type: string
+        - name: datetime
+          in: query
+          schema:
+            type: string
+        - name: timeResolution
+          in: query
+          schema:
+            type: string
+            enum:
+              - hour
+              - day
+              - month
+              - year
+      responses:
+        '200':
+          description: Feature collection of climate values
+          content:
+            application/geo+json:
+              schema:
+                $ref: '#/components/schemas/FeatureCollection'
+      security:
+        - apiKey: []
+  /oceanObs/collections/observation/items:
+    get:
+      operationId: listOceanObservations
+      summary: List ocean observations
+      description: Returns sea-level and water-temperature observations.
+      tags:
+        - oceanObs
+      parameters:
+        - name: stationId
+          in: query
+          schema:
+            type: string
+        - name: parameterId
+          in: query
+          schema:
+            type: string
+        - name: datetime
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Feature collection of ocean observations
+          content:
+            application/geo+json:
+              schema:
+                $ref: '#/components/schemas/FeatureCollection'
+      security:
+        - apiKey: []
+  /lightningdata/collections/observation/items:
+    get:
+      operationId: listLightningObservations
+      summary: List lightning observations
+      description: Returns lightning-strike events detected in the DMI area of responsibility.
+      tags:
+        - lightningData
+      parameters:
+        - name: datetime
+          in: query
+          schema:
+            type: string
+        - name: bbox
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Feature collection of lightning events
+          content:
+            application/geo+json:
+              schema:
+                $ref: '#/components/schemas/FeatureCollection'
+      security:
+        - apiKey: []
+components:
+  securitySchemes:
+    apiKey:
+      type: apiKey
+      in: query
+      name: api-key
+      description: Per-service API key issued by the DMI Open Data portal.
+  schemas:
+    FeatureCollection:
+      type: object
+      required:
+        - type
+        - features
+      properties:
+        type:
+          type: string
+          enum:
+            - FeatureCollection
+        features:
+          type: array
+          items:
+            $ref: '#/components/schemas/Feature'
+        numberReturned:
+          type: integer
+        numberMatched:
+          type: integer
+    Feature:
+      type: object
+      required:
+        - type
+        - geometry
+        - properties
+      properties:
+        type:
+          type: string
+          enum:
+            - Feature
+        id:
+          type: string
+        geometry:
+          type: object
+          properties:
+            type:
+              type: string
+            coordinates:
+              type: array
+              items: {}
+        properties:
+          type: object
+          additionalProperties: true

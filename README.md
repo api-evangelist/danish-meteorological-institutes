@@ -1,42 +1,59 @@
 # Danish Meteorological Institutes (danish-meteorological-institutes)
-The Danish Meteorological Institute is a government agency responsible for providing meteorological and climate services in Denmark. Their main mission is to gather, analyze, and disseminate data and information about the weather, climate, and related environmental issues. They operate a network of weather stations, radar systems, and satellites to monitor and forecast weather conditions in Denmark and the surrounding areas. In addition to weather forecasting, the institute conducts research on climate change, air quality, and environmental impacts of weather-related events. They also provide weather warnings and advisories to help the public and decision-makers prepare for and respond to severe weather events. Overall, the Danish Meteorological Institute plays a critical role in protecting lives, property, and the environment in Denmark through their comprehensive meteorological and climate services.
+The Danish Meteorological Institute is a government agency responsible for providing meteorological and climate services in Denmark. DMI publishes weather observations, climate data, ocean observations, and lightning data through its Open Data API and supplies forecast products via the AWS Open Data registry. The agency operates weather stations, radar systems, and satellites to monitor and forecast weather across Denmark, Greenland, and the Faroe Islands.
 
 **URL:** [Visit APIs.json URL](https://raw.githubusercontent.com/api-evangelist/danish-meteorological-institutes/refs/heads/main/apis.yml)
 
 ## Scope
 
-- **Type:** Index 
-- **Position:** Consumer 
-- **Access:** 3rd-Party 
+- **Type:** Index
+- **Position:** Consumer
+- **Access:** 3rd-Party
+- **xType:** company
 
 ## Tags:
 
- - Meteorological, Meterology, Weather, Climate, Environment
+ - Climate, Environment, Lightning, Meteorological, Ocean, Open Data, Weather
 
 ## Timestamps
 
-- **Created:** 2025-02-06 
-- **Modified:** 2025-03-01 
+- **Created:** 2025-02-06
+- **Modified:** 2026-04-28
 
 ## APIs
 
-### Danish Meteorological Institutes
-The Danish Meteorological Institute (DMI) is a government agency in Denmark responsible for providing weather forecasts, warnings, and climate information to the public and various industries. DMI collects data from weather stations, satellites, and other sources to create accurate and reliable weather predictions. In addition to forecasting the weather, DMI also conducts research on climate change and its impacts on the environment. The institute plays a crucial role in keeping the people of Denmark safe and informed about weather conditions, as well as contributing to global efforts to understand and mitigate the effects of climate change.
+### DMI Open Data API
+The DMI Open Data API provides access to four core public services - meteorological observations (metObs), climate data (climateData), ocean observations (oceanObs), and lightning data (lightningData) - via OGC API compatible feature collections. Each service requires a per-service API key obtained through the DMI Open Data portal.
 
-**Human URL:** [ https://opendatadocs.dmi.govcloud.dk/en/DMIOpenData]( https://opendatadocs.dmi.govcloud.dk/en/DMIOpenData)
+**Human URL:** [https://opendatadocs.dmi.govcloud.dk/](https://opendatadocs.dmi.govcloud.dk/)
 
+**Base URL:** https://opendataapi.dmi.dk/v2
 
 #### Tags:
 
- - Meteorological, Meterology, Weather, Climate, Environment
+ - Climate, Environment, Lightning, Meteorological, Ocean, Open Data, Weather
 
 #### Properties
 
-- [Documentation]( https://opendatadocs.dmi.govcloud.dk/en/DMIOpenData)
+- [Documentation](https://opendatadocs.dmi.govcloud.dk/)
+- [Authentication](https://opendatadocs.dmi.govcloud.dk/Authentication)
+- [OpenAPI](openapi/dmi-open-data-api-openapi.yml)
+- [JSONSchema - Observation](json-schema/observation.json)
+- [JSONSchema - Station](json-schema/station.json)
+- [Rules](rules/dmi-open-data-api-rules.yml)
+- [Capabilities](capabilities/dmi-open-data-api-capabilities.yml)
+
+## Common Properties
+
+- [Website](https://www.dmi.dk/)
+- [Open Data Portal](https://opendatadocs.dmi.govcloud.dk/)
+- [Open Data FAQ](https://opendatadocs.dmi.govcloud.dk/en/FAQ)
+- [AWS Open Data](https://registry.opendata.aws/dmi-opendata/)
+- [GitHub Organization](https://github.com/dmidk)
+- [JSON-LD](json-ld/dmi-context.jsonld)
+- [Vocabulary](vocabulary/dmi-vocabulary.yml)
 
 ## Maintainers
 
 **FN:** Kin Lane
 
-**Email:** info@apievangelist.com
-
+**Email:** kin@apievangelist.com

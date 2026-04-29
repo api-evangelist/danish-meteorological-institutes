@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/danish-meteorological-institutes/refs/heads/main/json-schema/station.json",
+  "title": "Station",
+  "description": "A DMI station feature describing a meteorological or oceanographic measurement station.",
+  "type": "object",
+  "required": ["type", "geometry", "properties"],
+  "properties": {
+    "type": {"type": "string", "const": "Feature"},
+    "id": {"type": "string"},
+    "geometry": {
+      "type": "object",
+      "properties": {
+        "type": {"type": "string"},
+        "coordinates": {"type": "array"}
+      }
+    },
+    "properties": {
+      "type": "object",
+      "properties": {
+        "stationId": {"type": "string"},
+        "name": {"type": "string"},
+        "country": {"type": "string"},
+        "type": {"type": "string"},
+        "operationFrom": {"type": "string", "format": "date-time"},
+        "operationTo": {"type": "string", "format": "date-time"}
+      },
+      "additionalProperties": true
+    }
+  }
+}
