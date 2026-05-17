@@ -67,9 +67,9 @@ common:
     url: https://opendatadocs.dmi.govcloud.dk/en/FAQ
   - type: AWS Open Data
     url: https://registry.opendata.aws/dmi-opendata/
-  - type: GitHub Organization
+  - type: GitHubOrganization
     url: https://github.com/dmidk
-  - type: JSON-LD
+  - type: JSONLD
     url: json-ld/dmi-context.jsonld
   - type: Vocabulary
     url: vocabulary/dmi-vocabulary.yml
@@ -77,4 +77,4 @@ maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
 specificationVersion: '0.19'
-xType: company
+kind: company
