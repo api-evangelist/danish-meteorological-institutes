@@ -1,0 +1,90 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: DMI Open Data API — oceanObs
+  description: 'DMI Open Data API — oceanObs. 1 operations. Lead operation: List ocean observations. Self-contained Naftiko
+    capability covering one Danish Meteorological Institutes business surface.'
+  tags:
+  - Danish Meteorological Institutes
+  - oceanObs
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    DANISH_METEOROLOGICAL_INSTITUTES_API_KEY: DANISH_METEOROLOGICAL_INSTITUTES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: dmi-open-data-oceanobs
+    baseUri: https://opendataapi.dmi.dk/v2
+    description: DMI Open Data API — oceanObs business capability. Self-contained, no shared references.
+    resources:
+    - name: oceanObs-collections-observation-items
+      path: /oceanObs/collections/observation/items
+      operations:
+      - name: listoceanobservations
+        method: GET
+        description: List ocean observations
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: stationId
+          in: query
+          type: string
+        - name: parameterId
+          in: query
+          type: string
+        - name: datetime
+          in: query
+          type: string
+    authentication:
+      type: apikey
+      key: api-key
+      value: '{{env.DANISH_METEOROLOGICAL_INSTITUTES_API_KEY}}'
+      placement: query
+  exposes:
+  - type: rest
+    namespace: dmi-open-data-oceanobs-rest
+    port: 8080
+    description: REST adapter for DMI Open Data API — oceanObs. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/oceanobs/collections/observation/items
+      name: oceanobs-collections-observation-items
+      description: REST surface for oceanObs-collections-observation-items.
+      operations:
+      - method: GET
+        name: listoceanobservations
+        description: List ocean observations
+        call: dmi-open-data-oceanobs.listoceanobservations
+        with:
+          stationId: rest.stationId
+          parameterId: rest.parameterId
+          datetime: rest.datetime
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: dmi-open-data-oceanobs-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for DMI Open Data API — oceanObs. One tool per consumed operation, routed inline through this
+      capability's consumes block.
+    tools:
+    - name: list-ocean-observations
+      description: List ocean observations
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: dmi-open-data-oceanobs.listoceanobservations
+      with:
+        stationId: tools.stationId
+        parameterId: tools.parameterId
+        datetime: tools.datetime
+      outputParameters:
+      - type: object
+        mapping: $.

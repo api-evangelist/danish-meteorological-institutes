@@ -1,0 +1,149 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: DMI Open Data API — metObs
+  description: 'DMI Open Data API — metObs. 2 operations. Lead operation: List meteorological observations. Self-contained
+    Naftiko capability covering one Danish Meteorological Institutes business surface.'
+  tags:
+  - Danish Meteorological Institutes
+  - metObs
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    DANISH_METEOROLOGICAL_INSTITUTES_API_KEY: DANISH_METEOROLOGICAL_INSTITUTES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: dmi-open-data-metobs
+    baseUri: https://opendataapi.dmi.dk/v2
+    description: DMI Open Data API — metObs business capability. Self-contained, no shared references.
+    resources:
+    - name: metObs-collections-observation-items
+      path: /metObs/collections/observation/items
+      operations:
+      - name: listmetobservations
+        method: GET
+        description: List meteorological observations
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: stationId
+          in: query
+          type: string
+          description: DMI station identifier.
+        - name: parameterId
+          in: query
+          type: string
+          description: Observation parameter (e.g., temp_dry, wind_speed).
+        - name: datetime
+          in: query
+          type: string
+          description: ISO-8601 datetime range, e.g. 2024-01-01T00:00:00Z/..
+        - name: bbox
+          in: query
+          type: string
+          description: Bounding box minLon,minLat,maxLon,maxLat.
+        - name: limit
+          in: query
+          type: integer
+    - name: metObs-collections-station-items
+      path: /metObs/collections/station/items
+      operations:
+      - name: listmetstations
+        method: GET
+        description: List meteorological stations
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: bbox
+          in: query
+          type: string
+        - name: limit
+          in: query
+          type: integer
+    authentication:
+      type: apikey
+      key: api-key
+      value: '{{env.DANISH_METEOROLOGICAL_INSTITUTES_API_KEY}}'
+      placement: query
+  exposes:
+  - type: rest
+    namespace: dmi-open-data-metobs-rest
+    port: 8080
+    description: REST adapter for DMI Open Data API — metObs. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/metobs/collections/observation/items
+      name: metobs-collections-observation-items
+      description: REST surface for metObs-collections-observation-items.
+      operations:
+      - method: GET
+        name: listmetobservations
+        description: List meteorological observations
+        call: dmi-open-data-metobs.listmetobservations
+        with:
+          stationId: rest.stationId
+          parameterId: rest.parameterId
+          datetime: rest.datetime
+          bbox: rest.bbox
+          limit: rest.limit
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/metobs/collections/station/items
+      name: metobs-collections-station-items
+      description: REST surface for metObs-collections-station-items.
+      operations:
+      - method: GET
+        name: listmetstations
+        description: List meteorological stations
+        call: dmi-open-data-metobs.listmetstations
+        with:
+          bbox: rest.bbox
+          limit: rest.limit
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: dmi-open-data-metobs-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for DMI Open Data API — metObs. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: list-meteorological-observations
+      description: List meteorological observations
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: dmi-open-data-metobs.listmetobservations
+      with:
+        stationId: tools.stationId
+        parameterId: tools.parameterId
+        datetime: tools.datetime
+        bbox: tools.bbox
+        limit: tools.limit
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: list-meteorological-stations
+      description: List meteorological stations
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: dmi-open-data-metobs.listmetstations
+      with:
+        bbox: tools.bbox
+        limit: tools.limit
+      outputParameters:
+      - type: object
+        mapping: $.
