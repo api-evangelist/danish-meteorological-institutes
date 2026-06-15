@@ -1,0 +1,221 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "DMI Open Data API",
+    "version": "2.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "metObs",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List meteorological observations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://opendataapi.dmi.dk/v2/metObs/collections/observation/items",
+            "params": [
+              {
+                "name": "stationId",
+                "value": "",
+                "type": "query",
+                "description": "DMI station identifier."
+              },
+              {
+                "name": "parameterId",
+                "value": "",
+                "type": "query",
+                "description": "Observation parameter (e.g., temp_dry, wind_speed)."
+              },
+              {
+                "name": "datetime",
+                "value": "",
+                "type": "query",
+                "description": "ISO-8601 datetime range, e.g. 2024-01-01T00:00:00Z/.."
+              },
+              {
+                "name": "bbox",
+                "value": "",
+                "type": "query",
+                "description": "Bounding box minLon,minLat,maxLon,maxLat."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "api-key",
+              "value": "{{api-key}}",
+              "placement": "query"
+            }
+          },
+          "docs": "Returns raw weather observations such as temperature, wind speed, humidity, pressure, and precipitation from DMI weather stations."
+        },
+        {
+          "info": {
+            "name": "List meteorological stations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://opendataapi.dmi.dk/v2/metObs/collections/station/items",
+            "params": [
+              {
+                "name": "bbox",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "api-key",
+              "value": "{{api-key}}",
+              "placement": "query"
+            }
+          },
+          "docs": "Lists DMI weather stations and their metadata."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "climateData",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List climate station values",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://opendataapi.dmi.dk/v2/climateData/collections/stationValue/items",
+            "params": [
+              {
+                "name": "stationId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "parameterId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "datetime",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "timeResolution",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "api-key",
+              "value": "{{api-key}}",
+              "placement": "query"
+            }
+          },
+          "docs": "Returns quality-checked climate data values measured at DMI stations, including hourly, daily, monthly and yearly aggregations."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "oceanObs",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List ocean observations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://opendataapi.dmi.dk/v2/oceanObs/collections/observation/items",
+            "params": [
+              {
+                "name": "stationId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "parameterId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "datetime",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "api-key",
+              "value": "{{api-key}}",
+              "placement": "query"
+            }
+          },
+          "docs": "Returns sea-level and water-temperature observations."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "lightningData",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List lightning observations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://opendataapi.dmi.dk/v2/lightningdata/collections/observation/items",
+            "params": [
+              {
+                "name": "datetime",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "bbox",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "api-key",
+              "value": "{{api-key}}",
+              "placement": "query"
+            }
+          },
+          "docs": "Returns lightning-strike events detected in the DMI area of responsibility."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

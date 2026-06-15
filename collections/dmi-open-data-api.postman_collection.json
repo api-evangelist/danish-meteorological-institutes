@@ -1,0 +1,703 @@
+{
+  "item": [
+    {
+      "id": "393a0748-4825-4e93-913c-1dc5ef907388",
+      "name": "metObs",
+      "description": {
+        "content": "Raw weather observations from Danish and Greenlandic stations.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "645c5168-fab2-4102-987c-2c87d0319318",
+          "name": "List meteorological observations",
+          "request": {
+            "name": "List meteorological observations",
+            "description": {
+              "content": "Returns raw weather observations such as temperature, wind speed, humidity, pressure, and precipitation from DMI weather stations.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "metObs",
+                "collections",
+                "observation",
+                "items"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "stationId",
+                  "value": "<string>",
+                  "description": "DMI station identifier."
+                },
+                {
+                  "disabled": false,
+                  "key": "parameterId",
+                  "value": "<string>",
+                  "description": "Observation parameter (e.g., temp_dry, wind_speed)."
+                },
+                {
+                  "disabled": false,
+                  "key": "datetime",
+                  "value": "<string>",
+                  "description": "ISO-8601 datetime range, e.g. 2024-01-01T00:00:00Z/.."
+                },
+                {
+                  "disabled": false,
+                  "key": "bbox",
+                  "value": "<string>",
+                  "description": "Bounding box minLon,minLat,maxLon,maxLat."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "1000"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/geo+json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "api-key"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "afbe997c-5ac4-4178-a17b-e9adccac1d4c",
+              "name": "Feature collection of observations",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "metObs",
+                    "collections",
+                    "observation",
+                    "items"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "stationId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "parameterId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "datetime",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "bbox",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "1000"
+                    },
+                    {
+                      "key": "api-key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/geo+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/geo+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"FeatureCollection\",\n  \"features\": [\n    {\n      \"type\": \"Feature\",\n      \"geometry\": {\n        \"type\": \"string\"\n      },\n      \"properties\": {\n        \"key_0\": 1347.8259858866725\n      },\n      \"id\": \"string\"\n    },\n    {\n      \"type\": \"Feature\",\n      \"geometry\": {\n        \"type\": \"string\"\n      },\n      \"properties\": {\n        \"key_0\": 219.33256382127396\n      },\n      \"id\": \"string\"\n    }\n  ],\n  \"numberReturned\": 8848,\n  \"numberMatched\": 4565\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d47b9f97-de5e-4a0f-887c-109e6e1726be",
+          "name": "List meteorological stations",
+          "request": {
+            "name": "List meteorological stations",
+            "description": {
+              "content": "Lists DMI weather stations and their metadata.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "metObs",
+                "collections",
+                "station",
+                "items"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "bbox",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "1000"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/geo+json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "api-key"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "5b9ed63a-dc8c-4527-b050-0d0eab2a4e61",
+              "name": "Feature collection of stations",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "metObs",
+                    "collections",
+                    "station",
+                    "items"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "bbox",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "1000"
+                    },
+                    {
+                      "key": "api-key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/geo+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/geo+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"FeatureCollection\",\n  \"features\": [\n    {\n      \"type\": \"Feature\",\n      \"geometry\": {\n        \"type\": \"string\"\n      },\n      \"properties\": {\n        \"key_0\": 1347.8259858866725\n      },\n      \"id\": \"string\"\n    },\n    {\n      \"type\": \"Feature\",\n      \"geometry\": {\n        \"type\": \"string\"\n      },\n      \"properties\": {\n        \"key_0\": 219.33256382127396\n      },\n      \"id\": \"string\"\n    }\n  ],\n  \"numberReturned\": 8848,\n  \"numberMatched\": 4565\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "a229ed47-5dfa-4129-9a05-2bde9a934ae0",
+      "name": "climateData",
+      "description": {
+        "content": "Quality-checked climate data at multiple aggregation levels.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "63522feb-e6a7-4bf4-a36b-dc3dd30933e5",
+          "name": "List climate station values",
+          "request": {
+            "name": "List climate station values",
+            "description": {
+              "content": "Returns quality-checked climate data values measured at DMI stations, including hourly, daily, monthly and yearly aggregations.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "climateData",
+                "collections",
+                "stationValue",
+                "items"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "stationId",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "parameterId",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "datetime",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "timeResolution",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/geo+json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "api-key"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "b2c53409-d9c6-4fdd-8084-503b769fb659",
+              "name": "Feature collection of climate values",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "climateData",
+                    "collections",
+                    "stationValue",
+                    "items"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "stationId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "parameterId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "datetime",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "timeResolution",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "api-key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/geo+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/geo+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"FeatureCollection\",\n  \"features\": [\n    {\n      \"type\": \"Feature\",\n      \"geometry\": {\n        \"type\": \"string\"\n      },\n      \"properties\": {\n        \"key_0\": 1347.8259858866725\n      },\n      \"id\": \"string\"\n    },\n    {\n      \"type\": \"Feature\",\n      \"geometry\": {\n        \"type\": \"string\"\n      },\n      \"properties\": {\n        \"key_0\": 219.33256382127396\n      },\n      \"id\": \"string\"\n    }\n  ],\n  \"numberReturned\": 8848,\n  \"numberMatched\": 4565\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "6b3ca0ae-cbdd-41c4-bbf4-51865bbac283",
+      "name": "oceanObs",
+      "description": {
+        "content": "Sea-level and water-temperature observations.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "b27c4a14-3558-4de4-b941-9d7dce47e0ef",
+          "name": "List ocean observations",
+          "request": {
+            "name": "List ocean observations",
+            "description": {
+              "content": "Returns sea-level and water-temperature observations.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "oceanObs",
+                "collections",
+                "observation",
+                "items"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "stationId",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "parameterId",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "datetime",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/geo+json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "api-key"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "b408decb-af6d-475b-9515-7bddd25d6cf4",
+              "name": "Feature collection of ocean observations",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "oceanObs",
+                    "collections",
+                    "observation",
+                    "items"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "stationId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "parameterId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "datetime",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "api-key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/geo+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/geo+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"FeatureCollection\",\n  \"features\": [\n    {\n      \"type\": \"Feature\",\n      \"geometry\": {\n        \"type\": \"string\"\n      },\n      \"properties\": {\n        \"key_0\": 1347.8259858866725\n      },\n      \"id\": \"string\"\n    },\n    {\n      \"type\": \"Feature\",\n      \"geometry\": {\n        \"type\": \"string\"\n      },\n      \"properties\": {\n        \"key_0\": 219.33256382127396\n      },\n      \"id\": \"string\"\n    }\n  ],\n  \"numberReturned\": 8848,\n  \"numberMatched\": 4565\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "9aab968c-fa65-47bd-9e54-ccae50f6161a",
+      "name": "lightningData",
+      "description": {
+        "content": "Lightning strike observations.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "cb180629-e5e3-4809-9be3-0714ed8f2957",
+          "name": "List lightning observations",
+          "request": {
+            "name": "List lightning observations",
+            "description": {
+              "content": "Returns lightning-strike events detected in the DMI area of responsibility.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "lightningdata",
+                "collections",
+                "observation",
+                "items"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "datetime",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "bbox",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/geo+json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "api-key"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "d2bd0e44-15b2-4ab6-8dd7-2f2c5488b030",
+              "name": "Feature collection of lightning events",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "lightningdata",
+                    "collections",
+                    "observation",
+                    "items"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "datetime",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "bbox",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "api-key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/geo+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/geo+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"FeatureCollection\",\n  \"features\": [\n    {\n      \"type\": \"Feature\",\n      \"geometry\": {\n        \"type\": \"string\"\n      },\n      \"properties\": {\n        \"key_0\": 1347.8259858866725\n      },\n      \"id\": \"string\"\n    },\n    {\n      \"type\": \"Feature\",\n      \"geometry\": {\n        \"type\": \"string\"\n      },\n      \"properties\": {\n        \"key_0\": 219.33256382127396\n      },\n      \"id\": \"string\"\n    }\n  ],\n  \"numberReturned\": 8848,\n  \"numberMatched\": 4565\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://opendataapi.dmi.dk/v2",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "3e159602-6642-49a3-be2a-46fff80c1f2a",
+    "name": "DMI Open Data API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Danish Meteorological Institute (DMI) Open Data API provides public access to weather observations, climate data, ocean observations, and lightning data through OGC API - Features compatible collections. Subscriptions and API keys are managed per data service.\n\nContact Support:\n Name: Danish Meteorological Institute",
+      "type": "text/plain"
+    }
+  }
+}
