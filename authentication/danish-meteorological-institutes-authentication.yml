@@ -1,0 +1,16 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/dmi-open-data-api-openapi.yml
+summary:
+  types:
+  - apiKey
+  api_key_in:
+  - query
+schemes:
+- name: apiKey
+  type: apiKey
+  in: query
+  parameter: api-key
+  description: Per-service API key issued by the DMI Open Data portal.
+  sources:
+  - openapi/dmi-open-data-api-openapi.yml

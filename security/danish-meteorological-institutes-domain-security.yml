@@ -1,0 +1,32 @@
+generated: '2026-07-11'
+method: probed
+source: live DNS/TLS/HTTP probes of apis.yml + OpenAPI hosts
+hosts:
+- host: www.dmi.dk
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Sep  7 07:31:50 2026 GMT
+  hsts: false
+- host: opendatadocs.dmi.govcloud.dk
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Sep 20 05:51:26 2026 GMT
+  hsts: null
+- host: opendataapi.dmi.dk
+  https: true
+  tls_version: TLSv1.2
+  cert_expires: Oct  8 23:59:59 2026 GMT
+  hsts: false
+domains:
+- domain: dmi.dk
+  dnssec: true
+  caa: []
+  spf: true
+  dmarc: true
+  dmarc_policy: reject
+- domain: govcloud.dk
+  dnssec: true
+  caa: []
+  spf: true
+  dmarc: true
+  dmarc_policy: reject
