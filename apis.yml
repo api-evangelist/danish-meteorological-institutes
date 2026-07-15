@@ -53,6 +53,8 @@ description: >-
   its Open Data API and supplies forecast products via the AWS Open Data registry. The agency operates weather stations,
   radar systems, and satellites to monitor and forecast weather across Denmark, Greenland, and the Faroe Islands.
 common:
+  - type: AgenticAccess
+    url: agentic-access/danish-meteorological-institutes-agentic-access.yml
   - type: VulnerabilityDisclosure
     url: security/danish-meteorological-institutes-vulnerability-disclosure.yml
   - type: DomainSecurity
