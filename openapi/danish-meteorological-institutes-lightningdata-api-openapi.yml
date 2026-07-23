@@ -1,0 +1,95 @@
+openapi: 3.1.0
+info:
+  title: DMI Open Data climateData lightningData API
+  description: The Danish Meteorological Institute (DMI) Open Data API provides public access to weather observations, climate data, ocean observations, and lightning data through OGC API - Features compatible collections. Subscriptions and API keys are managed per data service.
+  version: '2.0'
+  contact:
+    name: Danish Meteorological Institute
+    url: https://opendatadocs.dmi.govcloud.dk/
+  license:
+    name: Creative Commons Attribution 4.0
+    url: https://creativecommons.org/licenses/by/4.0/
+servers:
+- url: https://opendataapi.dmi.dk/v2
+  description: DMI Open Data API v2 (current)
+- url: https://dmigw.govcloud.dk/v2
+  description: DMI Open Data API v2 (legacy, retiring 2026-06-30)
+tags:
+- name: lightningData
+  description: Lightning strike observations.
+paths:
+  /lightningdata/collections/observation/items:
+    get:
+      operationId: listLightningObservations
+      summary: List lightning observations
+      description: Returns lightning-strike events detected in the DMI area of responsibility.
+      tags:
+      - lightningData
+      parameters:
+      - name: datetime
+        in: query
+        schema:
+          type: string
+      - name: bbox
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Feature collection of lightning events
+          content:
+            application/geo+json:
+              schema:
+                $ref: '#/components/schemas/FeatureCollection'
+      security:
+      - apiKey: []
+components:
+  schemas:
+    Feature:
+      type: object
+      required:
+      - type
+      - geometry
+      - properties
+      properties:
+        type:
+          type: string
+          enum:
+          - Feature
+        id:
+          type: string
+        geometry:
+          type: object
+          properties:
+            type:
+              type: string
+            coordinates:
+              type: array
+              items: {}
+        properties:
+          type: object
+          additionalProperties: true
+    FeatureCollection:
+      type: object
+      required:
+      - type
+      - features
+      properties:
+        type:
+          type: string
+          enum:
+          - FeatureCollection
+        features:
+          type: array
+          items:
+            $ref: '#/components/schemas/Feature'
+        numberReturned:
+          type: integer
+        numberMatched:
+          type: integer
+  securitySchemes:
+    apiKey:
+      type: apiKey
+      in: query
+      name: api-key
+      description: Per-service API key issued by the DMI Open Data portal.
