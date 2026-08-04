@@ -1,0 +1,20 @@
+{
+  "provider": "danish-meteorological-institutes",
+  "sources": [
+    "danish-meteorological-institutes-climatedata-api-openapi.yml",
+    "danish-meteorological-institutes-lightningdata-api-openapi.yml",
+    "danish-meteorological-institutes-metobs-api-openapi.yml",
+    "danish-meteorological-institutes-oceanobs-api-openapi.yml"
+  ],
+  "outputs": [
+    "danish-meteorological-institutes-climatedata-api-openapi.yml",
+    "danish-meteorological-institutes-lightningdata-api-openapi.yml",
+    "danish-meteorological-institutes-metobs-api-openapi.yml",
+    "danish-meteorological-institutes-oceanobs-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
