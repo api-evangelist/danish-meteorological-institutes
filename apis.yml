@@ -21,8 +21,6 @@ apis:
     url: json-schema/station.json
   - type: Rules
     url: rules/dmi-open-data-api-rules.yml
-  - type: Capabilities
-    url: capabilities/dmi-open-data-api-capabilities.yml
 - aid: danish-meteorological-institutes:danish-meteorological-institutes-lightningdata-api
   name: Danish Meteorological Institutes lightningData API
   description: Lightning strike observations.
@@ -43,8 +41,6 @@ apis:
     url: json-schema/station.json
   - type: Rules
     url: rules/dmi-open-data-api-rules.yml
-  - type: Capabilities
-    url: capabilities/dmi-open-data-api-capabilities.yml
 - aid: danish-meteorological-institutes:danish-meteorological-institutes-metobs-api
   name: Danish Meteorological Institutes metObs API
   description: Raw weather observations from Danish and Greenlandic stations.
@@ -65,8 +61,6 @@ apis:
     url: json-schema/station.json
   - type: Rules
     url: rules/dmi-open-data-api-rules.yml
-  - type: Capabilities
-    url: capabilities/dmi-open-data-api-capabilities.yml
 - aid: danish-meteorological-institutes:danish-meteorological-institutes-oceanobs-api
   name: Danish Meteorological Institutes oceanObs API
   description: Sea-level and water-temperature observations.
@@ -87,8 +81,6 @@ apis:
     url: json-schema/station.json
   - type: Rules
     url: rules/dmi-open-data-api-rules.yml
-  - type: Capabilities
-    url: capabilities/dmi-open-data-api-capabilities.yml
 name: Danish Meteorological Institutes
 tags:
   - Climate
