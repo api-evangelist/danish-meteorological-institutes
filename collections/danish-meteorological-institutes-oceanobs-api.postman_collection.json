@@ -1,0 +1,157 @@
+{
+  "item": [
+    {
+      "id": "1ecc03fc-a308-4231-83f7-d2a59d3494e7",
+      "name": "oceanObs",
+      "description": {
+        "content": "Sea-level and water-temperature observations.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "61e15a4b-f2e6-4b57-b15b-ab2f6daba217",
+          "name": "List ocean observations",
+          "request": {
+            "name": "List ocean observations",
+            "description": {
+              "content": "Returns sea-level and water-temperature observations.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "oceanObs",
+                "collections",
+                "observation",
+                "items"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "stationId",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "parameterId",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "datetime",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/geo+json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "api-key"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "5f925f80-b040-4995-8890-5f0fcc344a00",
+              "name": "Feature collection of ocean observations",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "oceanObs",
+                    "collections",
+                    "observation",
+                    "items"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "stationId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "parameterId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "datetime",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "api-key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/geo+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/geo+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"FeatureCollection\",\n  \"features\": [\n    {\n      \"type\": \"Feature\",\n      \"geometry\": {\n        \"type\": \"string\"\n      },\n      \"properties\": {\n        \"key_0\": 2369.661488205078,\n        \"key_1\": 2702.63070032851,\n        \"key_2\": true\n      },\n      \"id\": \"string\"\n    },\n    {\n      \"type\": \"Feature\",\n      \"geometry\": {\n        \"type\": \"string\"\n      },\n      \"properties\": {\n        \"key_0\": 3082.390556923701,\n        \"key_1\": false\n      },\n      \"id\": \"string\"\n    }\n  ],\n  \"numberReturned\": 7597,\n  \"numberMatched\": 4782\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://opendataapi.dmi.dk/v2",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "d0397856-d605-4708-a056-0ade8c29ad84",
+    "name": "DMI Open Data climateData oceanObs API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Danish Meteorological Institute (DMI) Open Data API provides public access to weather observations, climate data, ocean observations, and lightning data through OGC API - Features compatible collections. Subscriptions and API keys are managed per data service.\n\nContact Support:\n Name: Danish Meteorological Institute",
+      "type": "text/plain"
+    }
+  }
+}

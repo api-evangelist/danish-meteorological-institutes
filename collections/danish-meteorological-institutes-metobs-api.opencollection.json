@@ -1,0 +1,95 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "DMI Open Data climateData metObs API",
+    "version": "2.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "metObs",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List meteorological observations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://opendataapi.dmi.dk/v2/metObs/collections/observation/items",
+            "params": [
+              {
+                "name": "stationId",
+                "value": "",
+                "type": "query",
+                "description": "DMI station identifier."
+              },
+              {
+                "name": "parameterId",
+                "value": "",
+                "type": "query",
+                "description": "Observation parameter (e.g., temp_dry, wind_speed)."
+              },
+              {
+                "name": "datetime",
+                "value": "",
+                "type": "query",
+                "description": "ISO-8601 datetime range, e.g. 2024-01-01T00:00:00Z/.."
+              },
+              {
+                "name": "bbox",
+                "value": "",
+                "type": "query",
+                "description": "Bounding box minLon,minLat,maxLon,maxLat."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "api-key",
+              "value": "{{api-key}}",
+              "placement": "query"
+            }
+          },
+          "docs": "Returns raw weather observations such as temperature, wind speed, humidity, pressure, and precipitation from DMI weather stations."
+        },
+        {
+          "info": {
+            "name": "List meteorological stations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://opendataapi.dmi.dk/v2/metObs/collections/station/items",
+            "params": [
+              {
+                "name": "bbox",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "api-key",
+              "value": "{{api-key}}",
+              "placement": "query"
+            }
+          },
+          "docs": "Lists DMI weather stations and their metadata."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

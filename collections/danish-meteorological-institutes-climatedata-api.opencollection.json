@@ -1,0 +1,57 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "DMI Open Data climateData API",
+    "version": "2.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "climateData",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List climate station values",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://opendataapi.dmi.dk/v2/climateData/collections/stationValue/items",
+            "params": [
+              {
+                "name": "stationId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "parameterId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "datetime",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "timeResolution",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "api-key",
+              "value": "{{api-key}}",
+              "placement": "query"
+            }
+          },
+          "docs": "Returns quality-checked climate data values measured at DMI stations, including hourly, daily, monthly and yearly aggregations."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

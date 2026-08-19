@@ -1,0 +1,52 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "DMI Open Data climateData oceanObs API",
+    "version": "2.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "oceanObs",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List ocean observations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://opendataapi.dmi.dk/v2/oceanObs/collections/observation/items",
+            "params": [
+              {
+                "name": "stationId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "parameterId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "datetime",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "api-key",
+              "value": "{{api-key}}",
+              "placement": "query"
+            }
+          },
+          "docs": "Returns sea-level and water-temperature observations."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

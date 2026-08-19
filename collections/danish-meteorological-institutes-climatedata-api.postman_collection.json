@@ -1,0 +1,166 @@
+{
+  "item": [
+    {
+      "id": "9498c02c-6b8d-4f7b-881a-db0b34c9c6dd",
+      "name": "climateData",
+      "description": {
+        "content": "Quality-checked climate data at multiple aggregation levels.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "0af825a0-fdf4-4416-8d95-89e14e5d3e26",
+          "name": "List climate station values",
+          "request": {
+            "name": "List climate station values",
+            "description": {
+              "content": "Returns quality-checked climate data values measured at DMI stations, including hourly, daily, monthly and yearly aggregations.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "climateData",
+                "collections",
+                "stationValue",
+                "items"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "stationId",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "parameterId",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "datetime",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "timeResolution",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/geo+json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "api-key"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "8d35a5a5-2a16-40df-9723-fd48a0394f3c",
+              "name": "Feature collection of climate values",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "climateData",
+                    "collections",
+                    "stationValue",
+                    "items"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "stationId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "parameterId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "datetime",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "timeResolution",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "api-key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/geo+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/geo+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"FeatureCollection\",\n  \"features\": [\n    {\n      \"type\": \"Feature\",\n      \"geometry\": {\n        \"type\": \"string\"\n      },\n      \"properties\": {\n        \"key_0\": 3379.522765867329,\n        \"key_1\": 92,\n        \"key_2\": \"string\"\n      },\n      \"id\": \"string\"\n    },\n    {\n      \"type\": \"Feature\",\n      \"geometry\": {\n        \"type\": \"string\"\n      },\n      \"properties\": {\n        \"key_0\": 8435.800858115681\n      },\n      \"id\": \"string\"\n    }\n  ],\n  \"numberReturned\": 2531,\n  \"numberMatched\": 2805\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://opendataapi.dmi.dk/v2",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "d4417c1d-76f7-4ffc-bc6a-a99ad90d9008",
+    "name": "DMI Open Data climateData API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Danish Meteorological Institute (DMI) Open Data API provides public access to weather observations, climate data, ocean observations, and lightning data through OGC API - Features compatible collections. Subscriptions and API keys are managed per data service.\n\nContact Support:\n Name: Danish Meteorological Institute",
+      "type": "text/plain"
+    }
+  }
+}

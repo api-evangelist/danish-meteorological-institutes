@@ -1,0 +1,47 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "DMI Open Data climateData lightningData API",
+    "version": "2.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "lightningData",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List lightning observations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://opendataapi.dmi.dk/v2/lightningdata/collections/observation/items",
+            "params": [
+              {
+                "name": "datetime",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "bbox",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "api-key",
+              "value": "{{api-key}}",
+              "placement": "query"
+            }
+          },
+          "docs": "Returns lightning-strike events detected in the DMI area of responsibility."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
