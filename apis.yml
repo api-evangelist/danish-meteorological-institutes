@@ -7,6 +7,8 @@ apis:
   humanURL: https://opendatadocs.dmi.govcloud.dk/
   baseURL: https://opendataapi.dmi.dk/v2
   tags:
+  - Climate Data
+  tags_raw:
   - climateData
   properties:
   - type: OpenAPI
@@ -26,7 +28,8 @@ apis:
   description: Lightning strike observations.
   humanURL: https://opendatadocs.dmi.govcloud.dk/
   baseURL: https://opendataapi.dmi.dk/v2
-  tags:
+  tags: []
+  tags_raw:
   - lightningData
   properties:
   - type: OpenAPI
@@ -46,7 +49,8 @@ apis:
   description: Raw weather observations from Danish and Greenlandic stations.
   humanURL: https://opendatadocs.dmi.govcloud.dk/
   baseURL: https://opendataapi.dmi.dk/v2
-  tags:
+  tags: []
+  tags_raw:
   - metObs
   properties:
   - type: OpenAPI
@@ -66,7 +70,8 @@ apis:
   description: Sea-level and water-temperature observations.
   humanURL: https://opendatadocs.dmi.govcloud.dk/
   baseURL: https://opendataapi.dmi.dk/v2
-  tags:
+  tags: []
+  tags_raw:
   - oceanObs
   properties:
   - type: OpenAPI
