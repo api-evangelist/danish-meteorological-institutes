@@ -6,8 +6,7 @@ apis:
   description: Quality-checked climate data at multiple aggregation levels.
   humanURL: https://opendatadocs.dmi.govcloud.dk/
   baseURL: https://opendataapi.dmi.dk/v2
-  tags:
-  - Climate Data
+  tags: []
   tags_raw:
   - climateData
   properties:
