@@ -2,7 +2,7 @@ aid: danish-meteorological-institutes
 url: https://raw.githubusercontent.com/api-evangelist/danish-meteorological-institutes/refs/heads/main/apis.yml
 apis:
 - aid: danish-meteorological-institutes:danish-meteorological-institutes-climatedata-api
-  name: Danish Meteorological Institutes climateData API
+  name: Danish Meteorological Institutes Climate Data API
   description: Quality-checked climate data at multiple aggregation levels.
   humanURL: https://opendatadocs.dmi.govcloud.dk/
   baseURL: https://opendataapi.dmi.dk/v2
@@ -24,7 +24,7 @@ apis:
   - type: Rules
     url: rules/dmi-open-data-api-rules.yml
 - aid: danish-meteorological-institutes:danish-meteorological-institutes-lightningdata-api
-  name: Danish Meteorological Institutes lightningData API
+  name: Danish Meteorological Institutes Lightning Data API
   description: Lightning strike observations.
   humanURL: https://opendatadocs.dmi.govcloud.dk/
   baseURL: https://opendataapi.dmi.dk/v2
@@ -45,7 +45,7 @@ apis:
   - type: Rules
     url: rules/dmi-open-data-api-rules.yml
 - aid: danish-meteorological-institutes:danish-meteorological-institutes-metobs-api
-  name: Danish Meteorological Institutes metObs API
+  name: Danish Meteorological Institutes Met Obs API
   description: Raw weather observations from Danish and Greenlandic stations.
   humanURL: https://opendatadocs.dmi.govcloud.dk/
   baseURL: https://opendataapi.dmi.dk/v2
@@ -66,7 +66,7 @@ apis:
   - type: Rules
     url: rules/dmi-open-data-api-rules.yml
 - aid: danish-meteorological-institutes:danish-meteorological-institutes-oceanobs-api
-  name: Danish Meteorological Institutes oceanObs API
+  name: Danish Meteorological Institutes Ocean Obs API
   description: Sea-level and water-temperature observations.
   humanURL: https://opendatadocs.dmi.govcloud.dk/
   baseURL: https://opendataapi.dmi.dk/v2

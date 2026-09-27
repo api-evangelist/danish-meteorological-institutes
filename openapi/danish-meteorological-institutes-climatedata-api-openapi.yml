@@ -58,6 +58,24 @@ paths:
       - apiKey: []
 components:
   schemas:
+    FeatureCollection:
+      type: object
+      required:
+      - type
+      - features
+      properties:
+        type:
+          type: string
+          enum:
+          - FeatureCollection
+        features:
+          type: array
+          items:
+            $ref: '#/components/schemas/Feature'
+        numberReturned:
+          type: integer
+        numberMatched:
+          type: integer
     Feature:
       type: object
       required:
@@ -82,24 +100,6 @@ components:
         properties:
           type: object
           additionalProperties: true
-    FeatureCollection:
-      type: object
-      required:
-      - type
-      - features
-      properties:
-        type:
-          type: string
-          enum:
-          - FeatureCollection
-        features:
-          type: array
-          items:
-            $ref: '#/components/schemas/Feature'
-        numberReturned:
-          type: integer
-        numberMatched:
-          type: integer
   securitySchemes:
     apiKey:
       type: apiKey
