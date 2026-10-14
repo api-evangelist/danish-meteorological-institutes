@@ -1,0 +1,19 @@
+edges:
+- partner_name: Open Geospatial Consortium
+  partner: ogc
+  detected_by: sweep-geospatial.py
+  first_seen: '2026-10-14'
+  partner_match: shape-anchor
+  type: contract
+  direction: provider-built
+  channel: provider-built
+  relationship: compatible
+  shape: ogc-api-features
+  evidence_kind: own-contract
+  evidence: https://github.com/api-evangelist/danish-meteorological-institutes/blob/main/openapi/danish-meteorological-institutes-climatedata-api-openapi.yml#L4
+  degree: declared-unqualified
+  quote: 'description: The Danish Meteorological Institute (DMI) Open Data API provides public access to weather
+    observations, climate data, ocean observations, and lightning data through OGC API - Features compatible collections.
+    Subscriptions and A'
+generated: '2026-10-14'
+method: searched
